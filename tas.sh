@@ -17,5 +17,5 @@ drush make ${scriptdir}tas.make tas.dev
 drush @local.tas.dev si standard --site-name="Local Drupal 8" install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest@acm.org" -y
 
 
-drush @local.tas.dev en restui devel tas_dash -y
+drush @local.tas.dev en restui devel tas_dash serialization rest hal basic_auth -y
 drush @local.tas.dev cache-rebuild
