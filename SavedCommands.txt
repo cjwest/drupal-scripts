@@ -1,0 +1,13 @@
+ #!/usr/bin/perl
+
+$site_name = "ssp-dev";
+
+drush make stanford-jumpstart-deployer/make/jumpstart-personal.make ssp-dev --working-copy
+ 
+drush si stanford_sites_jumpstart_personal --site-name="ssp-dev" install_configure_form.org_type="group" install_configure_form.enable_webauth=1 install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest@stanford.edu" -y --db-url=mysql://root:root@localhost/ssp-dev
+
+drush make stanford-jumpstart-deployer/make/jumpstart-academic.make jsa-dev --working-copy
+
+drush @local.jsa.dev si stanford_sites_jumpstart_academic --site-name="Local JSA Dev" install_configure_form.org_type="group" install_configure_form.enable_webauth=1 install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest@stanford.edu" -y --db-url=mysql://root:root@localhost/jsa-dev
+
+
