@@ -3,7 +3,7 @@
 ##############
 # User Input #
 ##############
-scriptdir='/Users/cjwest/Documents/htdocs/drupal-scripts/'
+scriptdir='/Users/cjwest/Documents/htdocs/drupal/'
 docroot='/Users/cjwest/Documents/htdocs/'
 deploydir='/Users/cjwest/Documents/htdocs/stanford-jumpstart-deployer/make/development/'
 

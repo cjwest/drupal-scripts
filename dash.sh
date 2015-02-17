@@ -3,7 +3,7 @@
 ##############
 # User Input #
 ##############
-scriptdir='/Users/cjwest/Documents/htdocs/drupal-scripts/'
+scriptdir='/Users/cjwest/Documents/htdocs/scripts/'
 docroot='/Users/cjwest/Documents/htdocs/'
 
 # Get the version

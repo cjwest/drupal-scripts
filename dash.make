@@ -3,14 +3,19 @@ api = 2
 core = 8.x
 
 ; Core
-projects[drupal][version] = "8.0.0-beta4"
+projects[drupal][version] = "8.0.0-beta6"
 
 ; Modules
+projects[restui][subdir] = "contrib"
+
 projects[devel][version] = "1.x-dev"
 projects[devel][subdir] = "contrib"
 
-projects[restui][version] = "1.x-dev"
-projects[restui][subdir] = "contrib"
+projects[config_inspector][version] = "1.0-alpha2"
+projects[config_inspector][subdir] = "contrib"
+
+projects[config_tools][version] = "1.0-alpha3"
+projects[config_tools][subdir] = "contrib"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
