@@ -5,7 +5,7 @@
 ##############
 scriptdir='/Users/cjwest/Documents/htdocs/scripts/'
 docroot='/Users/cjwest/Documents/htdocs/'
-sitealias='\@local.dash.dev'
+#sitealias='@local.dash.dev'
 sitename='dash.dev'
 
 # Get the version
@@ -16,11 +16,11 @@ sitename='dash.dev'
 
 #drush @local.dash.dev make /Users/cjwest/Documents/htdocs/deploy/dash.make dash.dev --working-copy
 ## If dir exists empty it.
-if [ -d /${docroot}/$sitename]; then
-  cd /${docroot}/$sitename
-  drush sql-drop -y
-  cd ../
-  rm -Rf /${docroot}/$sitename
+echo $sitename, $sitealias
+
+if [ -d ${docroot}${sitename} ]; then
+#  drush $sitealias sql-drop -y
+  rm -Rf ${docroot}${sitename}
 fi
 
 
