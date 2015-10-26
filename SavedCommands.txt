@@ -6,8 +6,25 @@ drush make stanford-jumpstart-deployer/make/jumpstart-personal.make ssp-dev --wo
  
 drush si stanford_sites_jumpstart_personal --site-name="ssp-dev" install_configure_form.org_type="group" install_configure_form.enable_webauth=1 install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest@stanford.edu" -y --db-url=mysql://root:root@localhost/ssp-dev
 
-drush make stanford-jumpstart-deployer/make/development/jumpstart-academic.make jsa.dev --working-copy
+drush make stanford-jumpstart-deployer/make/development/jumpstart-academic.make jsa.dev --working-copy --concurrency=4
 
-drush @local.jsa.dev si stanford_sites_jumpstart_academic --site-name="Local JSA Dev" install_configure_form.org_type="group" install_configure_form.enable_webauth=1 install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest@stanford.edu" -y --db-url=mysql://root:root@localhost/jsa.dev
+drush @local.jsa.dev si stanford_sites_jumpstart_academic --site-name="Local JSA Dev" install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest+admin@stanford.edu" -y --db-url=mysql://root:root@localhost/jsa_dev
 
+###jsa.test
+drush make stanford-jumpstart-deployer/make/development/jumpstart-academic.make jsa.test --working-copy --concurrency=4
+
+drush @local.jsa.test si stanford_sites_jumpstart_academic --site-name="Local JSA Test" install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest+admin@stanford.edu" -y --db-url=mysql://root:root@localhost/jsa_test
+
+
+drush make stanford-jumpstart-deployer/make/development/jumpstart-engineering.make jse.dev --working-copy --concurrency=4
+
+drush @local.jse.dev si stanford_sites_jumpstart_engineering --site-name="Local JSE Dev" install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest+admin@stanford.edu" -y --db-url=mysql://root:root@localhost/jse_dev
+
+
+drush make stanford-jumpstart-deployer/make/development/jumpstart-engineering.make jse.test --working-copy --concurrency=4
+
+drush @local.jse.test si stanford_sites_jumpstart_engineering --site-name="Local JSE Test" install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest+admin@stanford.edu" -y --db-url=mysql://root:root@localhost/jse_test
+
+### Shea's alias for building jumpstart
+alias build-jsv="cd /httpdocs && sudo rm -Rf /httpdocs/jsvmake.su.dev && drush make /httpdocs/stanford-jumpstart-deployer/make/development/jumpstart.make /httpdocs/jsvmake.su.dev --working-copy -v --no-cache --ignore-checksums --prepare-install --concurrency=4 && cd /httpdocs/jsvmake.su.dev && rm .htaccess && cp /Users/admin/scripts/su/.htaccess ./ && cp /Users/admin/scripts/su/settings.php sites/default/settings.php && sed -i .bak 's/\[dbname\]/jsvmake_su_dev/g' sites/default/settings.php && sed -i .bak 's/\[baseurl\]/http\:\/\/jsvmake.su.dev/g' sites/default/settings.php && drush si stanford_sites_jumpstart -y && daa && drush uli”
 

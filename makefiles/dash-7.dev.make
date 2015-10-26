@@ -7,12 +7,18 @@ projects[drupal][version] = "7.x"
 
 ; Modules
 projects[wsclient][subdir] = "contrib"
+
 projects[entity][subdir] = "contrib"
 projects[devel][subdir] = "contrib"
 projects[admin_menu][subdir] = "contrib"
 projects[rules][subdir] = "contrib"
 projects[http_client][subdir] = "contrib"
 projects[oauth][subdir] = "contrib"
+projects[features][subdir] = "contrib"
+projects[link][subdir] = "contrib"
+projects[encrypt][subdir] = "contrib"
+projects[ctools][subdir] = "contrib"
+projects[views][subdir] = "contrib"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
