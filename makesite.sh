@@ -21,24 +21,39 @@ if [ "$sitename" == "" ] ; then
   echo Houston, we have no site to build.
   exit 0
 
+# JSA  
 elif [ "$sitename" == "jsa.prod" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-academic.make'
   database='jsa_prod'
 elif [ "$sitename" == "jsa.test" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-academic.make'
   database='jsa_test'
+elif [ "$sitename" == "jsa.dev" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-academic.make'
+  database='jsa_dev'
+
+# JSE
 elif [ "$sitename" == "jse.prod" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-engineering.make'
   database='jse_prod'
 elif [ "$sitename" == "jse.test" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
   database='jse_test'
-elif [ "$sitename" == "jsa.dev" ] ; then
-  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-academic.make'
-  database='jsa_dev'
 elif [ "$sitename" == "jse.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
   database='jse_dev'
+
+# JSV
+elif [ "$sitename" == "jsv.prod" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-engineering.make'
+  database='jsv_prod'
+elif [ "$sitename" == "jsv.test" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
+  database='jsv_test'
+elif [ "$sitename" == "jsv.dev" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
+  database='jsv_dev'
+
 else
   echo Hmm, we don\'t have your site here: $sitename
   exit 0

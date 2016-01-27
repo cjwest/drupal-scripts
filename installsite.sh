@@ -21,6 +21,8 @@ settingsfile='settings.php'
 if [ "$sitename" == "" ] ; then
   echo Houston, we have no site to build.
   exit 0
+
+# JSE  
 elif [ "$sitename" = "jse.dev" ] ; then
   echo sitename: $sitename
   profile='stanford_sites_jumpstart_engineering'
@@ -33,6 +35,8 @@ elif [ "$sitename" = "jse.test" ] ; then
   echo sitename: $sitename
   profile='stanford_sites_jumpstart_engineering'
   database='jse_test'
+
+# JSA  
 elif [ "$sitename" == "jsa.dev" ] ; then
   echo sitename: $sitename
   profile='stanford_sites_jumpstart_academic'
@@ -45,6 +49,20 @@ elif [ "$sitename" == "jsa.prod" ] ; then
   echo sitename: $sitename
   profile='stanford_sites_jumpstart_academic'
   database='jsa_prod'
+
+# JSV  
+elif [ "$sitename" == "jsv.dev" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart'
+  database='jsv_dev'
+elif [ "$sitename" == "jsv.test" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart'
+  database='jsv_test'
+elif [ "$sitename" == "jsv.prod" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart'
+  database='jsv_prod'
 else
  echo 'Error: invalid site selection'
  exit 0
