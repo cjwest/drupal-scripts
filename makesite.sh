@@ -16,6 +16,7 @@ sitename=$1
 sitealias='@local.'${sitename}
 sitedir=${docroot}${sitename}/
 database=$sitename
+makefiledir=${scriptdir}'makefiles/'
 
 if [ "$sitename" == "" ] ; then
   echo Houston, we have no site to build.
@@ -53,6 +54,28 @@ elif [ "$sitename" == "jsv.test" ] ; then
 elif [ "$sitename" == "jsv.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
   database='jsv_dev'
+
+# dash-7
+elif [ "$sitename" == "dash-7.prod" ] ; then
+  makefile=${makefiledir}'dash-7.prod.make'
+  database='dash-7_prod'
+elif [ "$sitename" == "dash-7.test" ] ; then
+  makefile=${makefiledir}'dash-7.test.make'
+  database='dash-7_test'
+elif [ "$sitename" == "dash-7.dev" ] ; then
+  makefile=${makefiledir}'dash-7.dev.make'
+  database='dash-7_dev'
+
+# drupal-7
+elif [ "$sitename" == "drupal-7.prod" ] ; then
+  makefile=${makefiledir}'drupal-7.prod.make'
+  database='drupal-7_prod'
+elif [ "$sitename" == "drupal-7.test" ] ; then
+  makefile=${makefiledir}'drupal-7.test.make'
+  database='drupal-7_test'
+elif [ "$sitename" == "drupal-7.dev" ] ; then
+  makefile=${makefiledir}'drupal-7.dev.make'
+  database='drupal-7_dev'
 
 else
   echo Hmm, we don\'t have your site here: $sitename
@@ -93,6 +116,11 @@ if [ $task == 'all' ] ; then
     sudo -u cjwest drush make ${makefile} ${docroot}${sitename}  --force-complete --working-copy --concurrency=4 --prepare-install
 fi
 
+echo Updating settings.php
+chmod 777 ${sitedir}sites/default/settings.php
+rm ${sitedir}sites/default/settings.php
+cp ${scriptdir}setupfiles/su.settings.php ${sitedir}sites/default/settings.php
+sed -i .bak 's/\[dbname\]/'${database}'/g' ${sitedir}sites/default/settings.php
 echo Stop time:  
 date
 

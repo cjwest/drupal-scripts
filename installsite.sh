@@ -15,7 +15,7 @@ task='all'
 sitename=$1
 sitealias='@local.'${sitename}
 sitedir=${docroot}${sitename}/
-database=$sitename
+database=''
 settingsfile='settings.php'
 
 if [ "$sitename" == "" ] ; then
@@ -63,6 +63,35 @@ elif [ "$sitename" == "jsv.prod" ] ; then
   echo sitename: $sitename
   profile='stanford_sites_jumpstart'
   database='jsv_prod'
+
+# drupal-7
+elif [ "$sitename" == "drupal-7.dev" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='drupal-7_dev'
+elif [ "$sitename" == "drupal-7.test" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='drupal-7_test'
+elif [ "$sitename" == "drupal-7.prod" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='drupal-7_prod'
+
+# Dash 7
+elif [ "$sitename" == "dash-7.dev" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='dash-7_dev'
+elif [ "$sitename" == "dash-7.test" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='dash-7_test'
+elif [ "$sitename" == "dash-7.prod" ] ; then
+  echo sitename: $sitename
+  profile='standard'
+  database='dash-7_prod'
+
 else
  echo 'Error: invalid site selection'
  exit 0
@@ -71,6 +100,7 @@ fi
 configfile=${configfilesdir}${sitename}'.sh'
 
 echo Here is what we\'re building with:
+echo sitename: $sitename
 echo sitealias: $sitealias
 echo profile: $profile
 echo docroot: $docroot
@@ -78,6 +108,7 @@ echo sitedir: $sitedir
 echo scriptdir: $scriptdir
 echo configfile: $configfile
 echo database: $database
+echo Drupal version: $drupalversion
 
 read -p "Okay to proceed? (y/n) " proceed
 if test $proceed = y; then
@@ -91,12 +122,11 @@ fi
 
 if [ $task == 'all' ] ; then
   echo Dropping Database: $database
-  drush ${sitealias} sql-drop -y
-
+  drush $sitealias sql-drop -y
   echo Installing $profile for $sitename
   drush ${sitealias} si ${profile} --site-name="Local "${sitename} install_configure_form.tmpdir="sites/default/files/tmp" --account-name="admin" --account-pass="admin" --account-mail="cjwest+admin@stanford.edu" -y 
 
-  echo Update .htaccess
+  echo Updating .htaccess
   rm ${sitedir}.htaccess 
   cp ${scriptdir}setupfiles/su.htaccess  ${sitedir}.htaccess
 

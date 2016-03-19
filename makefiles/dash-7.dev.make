@@ -26,3 +26,12 @@ projects[views][subdir] = "contrib"
 ;projects[tas_dash][download][url] = ""
 ;projects[tas_dash][type] = "module"
 
+projects[open_framework][download][type] = "git"
+projects[open_framework][download][url] = "https://github.com/SU-SWS/open_framework.git"
+projects[open_framework][type] = "theme"
+
+
+projects[dash][download][type] = "git"
+projects[dash][download][url] = "https://github.com/cjwest/dash.git"
+projects[dash][type] = "module"
+projects[dash][subdir] = "custom"

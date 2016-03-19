@@ -27,7 +27,6 @@ drush $sitealias en environment_indicator -y
 drush $sitealias vset stanford_sites_allow_features_generate TRUE
 
 drush $sitealias upwd admin --password=admin
-#drush $sitealias fra --force -y
 
 echo Clearing cache ${sitealias}
 if test $drupalversion = 7; then
