@@ -19,6 +19,7 @@ projects[link][subdir] = "contrib"
 projects[encrypt][subdir] = "contrib"
 projects[ctools][subdir] = "contrib"
 projects[views][subdir] = "contrib"
+projects[strongarm][subdir] = "contrib"
 
 ; Please fill the following out. Type may be one of get, git, bzr or svn,
 ; and url is the url of the download.
