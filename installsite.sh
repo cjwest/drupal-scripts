@@ -85,7 +85,7 @@ elif [ "$sitename" == "dash-7.dev" ] ; then
   database='dash-7_dev'
 elif [ "$sitename" == "dash-7.test" ] ; then
   echo sitename: $sitename
-  profile='standard'
+  profile='dash'
   database='dash-7_test'
 elif [ "$sitename" == "dash-7.prod" ] ; then
   echo sitename: $sitename

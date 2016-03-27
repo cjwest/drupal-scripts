@@ -15,7 +15,6 @@ task='all'
 sitename=$1
 sitealias='@local.'${sitename}
 sitedir=${docroot}${sitename}/
-database=$sitename
 makefiledir=${scriptdir}'makefiles/'
 
 if [ "$sitename" == "" ] ; then
@@ -25,57 +24,42 @@ if [ "$sitename" == "" ] ; then
 # JSA  
 elif [ "$sitename" == "jsa.prod" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-academic.make'
-  database='jsa_prod'
 elif [ "$sitename" == "jsa.test" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-academic.make'
-  database='jsa_test'
 elif [ "$sitename" == "jsa.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-academic.make'
-  database='jsa_dev'
 
 # JSE
 elif [ "$sitename" == "jse.prod" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-engineering.make'
-  database='jse_prod'
 elif [ "$sitename" == "jse.test" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
-  database='jse_test'
 elif [ "$sitename" == "jse.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
-  database='jse_dev'
 
 # JSV
 elif [ "$sitename" == "jsv.prod" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-engineering.make'
-  database='jsv_prod'
 elif [ "$sitename" == "jsv.test" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
-  database='jsv_test'
 elif [ "$sitename" == "jsv.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
-  database='jsv_dev'
 
 # dash-7
 elif [ "$sitename" == "dash-7.prod" ] ; then
   makefile=${makefiledir}'dash-7.prod.make'
-  database='dash-7_prod'
 elif [ "$sitename" == "dash-7.test" ] ; then
-  makefile=${makefiledir}'dash-7.test.make'
-  database='dash-7_test'
+  makefile=${makefiledir}'dash-7.make'
 elif [ "$sitename" == "dash-7.dev" ] ; then
-  makefile=${makefiledir}'dash-7.dev.make'
-  database='dash-7_dev'
+  makefile=${makefiledir}'dash-7.make'
 
 # drupal-7
 elif [ "$sitename" == "drupal-7.prod" ] ; then
   makefile=${makefiledir}'drupal-7.prod.make'
-  database='drupal-7_prod'
 elif [ "$sitename" == "drupal-7.test" ] ; then
   makefile=${makefiledir}'drupal-7.test.make'
-  database='drupal-7_test'
 elif [ "$sitename" == "drupal-7.dev" ] ; then
   makefile=${makefiledir}'drupal-7.dev.make'
-  database='drupal-7_dev'
 
 else
   echo Hmm, we don\'t have your site here: $sitename
@@ -95,7 +79,6 @@ echo docroot: $docroot
 echo drupalversion: $drupalversion
 echo si_options: $si_options
 echo task: $task
-echo database: $database
 
 
 read -p "Okay to proceed? (y/n) " proceed
