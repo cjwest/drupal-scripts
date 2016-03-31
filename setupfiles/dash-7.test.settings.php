@@ -215,11 +215,11 @@
 $databases = array();
 $databases['default']['default'] = array(
   'driver' => 'mysql',
-  'database' => 'dbname',
+  'database' => 'dash-7_test',
   'username' => 'root',
   'password' => 'root',
   'host' => 'localhost',
-//  'host' => '127.0.01',
+//  'host' => '127.0.0.1',
   'prefix' => '',
 );
 
