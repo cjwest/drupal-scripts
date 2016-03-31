@@ -48,6 +48,17 @@ elif [ "$sitename" == "jsv.dev" ] ; then
   makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart.make'
   database='jsv_dev'
 
+# JSP
+elif [ "$sitename" == "jsp.prod" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart_plus.make'
+  database='jsp_prod'
+elif [ "$sitename" == "jsp.test" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart_plus.make'
+  database='jsp_test'
+elif [ "$sitename" == "jsp.dev" ] ; then
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart_plus.make'
+  database='jsp_dev'
+
 # dash-7
 elif [ "$sitename" == "dash-7.prod" ] ; then
   makefile=${makefiledir}'dash-7.prod.make'

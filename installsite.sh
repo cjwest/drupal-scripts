@@ -64,6 +64,20 @@ elif [ "$sitename" == "jsv.prod" ] ; then
   profile='stanford_sites_jumpstart'
   database='jsv_prod'
 
+# JSP 
+elif [ "$sitename" == "jsp.dev" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart_plus'
+  database='jsp_dev'
+elif [ "$sitename" == "jsp.test" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart_plus'
+  database='jsp_test'
+elif [ "$sitename" == "jsp.prod" ] ; then
+  echo sitename: $sitename
+  profile='stanford_sites_jumpstart_plus'
+  database='jsp_prod'
+
 # drupal-7
 elif [ "$sitename" == "drupal-7.dev" ] ; then
   echo sitename: $sitename
