@@ -45,13 +45,13 @@ elif [ "$sitename" == "jse.dev" ] ; then
 
 # JSV
 elif [ "$sitename" == "jsv.prod" ] ; then
-  makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart-engineering.make'
+  makefile=${docroot}'stanford-jumpstart-deployer/make/production/jumpstart.make'
   database='jsv_prod'
 elif [ "$sitename" == "jsv.test" ] ; then
-  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart.make'
   database='jsv_test'
 elif [ "$sitename" == "jsv.dev" ] ; then
-  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart-engineering.make'
+  makefile=${docroot}'stanford-jumpstart-deployer/make/development/jumpstart.make'
   database='jsv_dev'
 
 else
